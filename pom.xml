@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.authguard.distribution</groupId>
-    <artifactId>test-distribution</artifactId>
+    <artifactId>mysql-distribution</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -13,13 +13,14 @@
         <maven.compiler.target>1.11</maven.compiler.target>
 
         <authguard.version>1.0-SNAPSHOT</authguard.version>
+        <mysql-dal.version>1.0-SNAPSHOT</mysql-dal.version>
 
         <exec-plugin.version>1.6.0</exec-plugin.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.auther</groupId>
+            <groupId>com.authguard</groupId>
             <artifactId>rest</artifactId>
             <version>${authguard.version}</version>
         </dependency>
@@ -32,8 +33,8 @@
 
         <dependency>
             <groupId>com.authguard</groupId>
-            <artifactId>memory-dal</artifactId>
-            <version>${authguard.version}</version>
+            <artifactId>mysql-dal</artifactId>
+            <version>${mysql-dal.version}</version>
         </dependency>
     </dependencies>
 
@@ -50,7 +51,7 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-                            <mainClass>org.auther.rest.Application</mainClass>
+                            <mainClass>com.authguard.rest.Application</mainClass>
                         </configuration>
                     </execution>
                 </executions>
