@@ -19,7 +19,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.auther</groupId>
+            <groupId>com.authguard</groupId>
             <artifactId>rest</artifactId>
             <version>${authguard.version}</version>
         </dependency>
@@ -33,6 +33,12 @@
         <dependency>
             <groupId>com.authguard</groupId>
             <artifactId>memory-dal</artifactId>
+            <version>${authguard.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.authguard</groupId>
+            <artifactId>log-external</artifactId>
             <version>${authguard.version}</version>
         </dependency>
     </dependencies>
@@ -50,7 +56,7 @@
                             <goal>java</goal>
                         </goals>
                         <configuration>
-                            <mainClass>org.auther.rest.Application</mainClass>
+                            <mainClass>com.authguard.rest.Application</mainClass>
                         </configuration>
                     </execution>
                 </executions>

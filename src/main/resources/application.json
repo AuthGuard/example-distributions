@@ -30,10 +30,12 @@
       "allowedAlgorithms": ["HMAC256"],
       "trustedIssuers": ["self"]
     },
+
     "authentication": {
       "strategy": "idToken",
       "useOtp": true
     },
+
     "authorization": {
       "strategy": "accessToken"
     },
@@ -47,6 +49,15 @@
       "lifeTime": "5m",
       "mode": "NUMERIC",
       "length": 6
+    },
+
+    "account": {
+      "verifyEmail": "true"
+    },
+
+    "verification": {
+      "verifyEmailUrlTemplate": "http://gateway/authguard/verify/email?token=${token}",
+      "emailVerificationLife": "1d"
     }
   }
 }
