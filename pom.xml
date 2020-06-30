@@ -5,8 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.authguard.distribution</groupId>
-    <artifactId>test-distribution</artifactId>
+    <artifactId>distributions-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>memory</module>
+        <module>mongo</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>1.11</maven.compiler.source>
@@ -17,51 +24,49 @@
         <exec-plugin.version>1.6.0</exec-plugin.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.authguard</groupId>
-            <artifactId>rest</artifactId>
-            <version>${authguard.version}</version>
-        </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.authguard</groupId>
+                <artifactId>rest</artifactId>
+                <version>${authguard.version}</version>
+            </dependency>
 
-        <dependency>
-            <groupId>com.authguard</groupId>
-            <artifactId>log-emb</artifactId>
-            <version>${authguard.version}</version>
-        </dependency>
+            <dependency>
+                <groupId>com.authguard</groupId>
+                <artifactId>log-emb</artifactId>
+                <version>${authguard.version}</version>
+            </dependency>
 
-        <dependency>
-            <groupId>com.authguard</groupId>
-            <artifactId>memory-dal</artifactId>
-            <version>${authguard.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.authguard</groupId>
-            <artifactId>log-external</artifactId>
-            <version>${authguard.version}</version>
-        </dependency>
-    </dependencies>
+            <dependency>
+                <groupId>com.authguard</groupId>
+                <artifactId>log-external</artifactId>
+                <version>${authguard.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>${exec-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                        <configuration>
-                            <mainClass>com.authguard.rest.Application</mainClass>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>${exec-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>java</goal>
+                            </goals>
+                            <configuration>
+                                <mainClass>com.authguard.rest.Application</mainClass>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>

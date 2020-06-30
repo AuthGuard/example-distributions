@@ -12,25 +12,13 @@ authguard:
   exchange:
     allowed:
       - from: "basic"
+        to: "idToken"
+      - from: "basic"
         to: "otp"
-      - from: "basic"
-        to: "accessToken"
-      - from: "refresh"
-        to: "accessToken"
-      - from: "otp"
-        to: "accessToken"
-      - from: "basic"
-        to: "authorizationCode"
-      - from: "authorizationCode"
-        to: "accessToken"
-      - from: "basic"
-        to: "passwordless"
-      - from: "passwordless"
-        to: "accessToken"
 
-  accessToken:
-    tokenLife: "5m"
-    refreshTokenLife: "1h"
+  idToken:
+    tokenLife: "1h"
+    refreshTokenLife: "1d"
     useJti: true
     includePermissions: true
     includeRoles: true
@@ -51,7 +39,7 @@ authguard:
     randomSize: 128
 
   authentication:
-    generateToken: "authorizationCode"
+    generateToken: "idToken"
 
   account:
     verifyEmail: true
@@ -68,3 +56,7 @@ authguard:
     channels:
       - accounts
       - auth
+
+  mongo:
+    connectionString: "mongodb://localhost:27017"
+    database: "authguard"
