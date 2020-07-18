@@ -41,8 +41,12 @@ authguard:
   authentication:
     generateToken: "idToken"
 
-  account:
+  accounts:
+    authguardAdminRole: "authguard_admin"
     verifyEmail: true
+
+  apps:
+    authguardAdminClientRole: "authguard_admin_client"
 
   verification:
     verifyEmailUrlTemplate: "http://gateway/authguard/verify/email?token=${token}"
