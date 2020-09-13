@@ -2,6 +2,14 @@ authguard:
   injection:
     packages: [ "com.authguard" ]
 
+  passwords:
+    algorithm: scrypt
+    scrypt:
+      blockSize: 16
+    conditions:
+#      includeCaps: true
+      minLength: 6
+
   jwt:
     algorithm: "HMAC256"
     privateKey: "FKvL11DI5rwgt51QgB3CVob3oWYrFNBzF0ROvu9Yaj8"
@@ -12,11 +20,11 @@ authguard:
   exchange:
     allowed:
       - from: "basic"
-        to: "idToken"
+        to: "accessToken"
       - from: "basic"
         to: "otp"
 
-  idToken:
+  accessToken:
     tokenLife: "1h"
     refreshTokenLife: "1d"
     useJti: true
@@ -39,7 +47,7 @@ authguard:
     randomSize: 128
 
   authentication:
-    generateToken: "idToken"
+    generateToken: "accessToken"
 
   accounts:
     authguardAdminRole: "authguard_admin"
