@@ -56,9 +56,9 @@ authguard:
   apps:
     authguardAdminClientRole: "authguard_admin_client"
 
-  verification:
-    verifyEmailUrlTemplate: "http://gateway/authguard/verify/email?token=${token}"
-    emailVerificationLife: "1d"
+#  verification:
+#    verifyEmailUrlTemplate: "http://gateway/authguard/verify/email?token=${token}"
+#    emailVerificationLife: "1d"
 
   oneTimeAdmin:
     usernameVariable: "AUTHGUARD_OTA_USERNAME"

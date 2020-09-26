@@ -22,6 +22,8 @@
         <authguard.version>1.0-SNAPSHOT</authguard.version>
 
         <exec-plugin.version>1.6.0</exec-plugin.version>
+        <jar-plugin.verion>3.2.0</jar-plugin.verion>
+        <assembly-plugin.version>3.1.1</assembly-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -62,6 +64,34 @@
                             <configuration>
                                 <mainClass>com.authguard.rest.Application</mainClass>
                             </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${assembly-plugin.version}</version>
+
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <mainClass>com.authguard.rest.Application</mainClass>
+                            </manifest>
+                        </archive>
+
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                    </configuration>
+
+                    <executions>
+                        <execution>
+                            <id>make-assembly</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>
