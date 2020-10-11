@@ -10,6 +10,9 @@ authguard:
 #      includeCaps: true
       minLength: 6
 
+  apiKeys:
+    type: "default"
+
   jwt:
     algorithm: "HMAC256"
     privateKey: "FKvL11DI5rwgt51QgB3CVob3oWYrFNBzF0ROvu9Yaj8"

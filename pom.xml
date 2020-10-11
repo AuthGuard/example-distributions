@@ -13,6 +13,7 @@
     <modules>
         <module>memory</module>
         <module>mongo</module>
+        <module>postgresql</module>
     </modules>
 
     <properties>
@@ -43,6 +44,12 @@
             <dependency>
                 <groupId>com.authguard</groupId>
                 <artifactId>log-external</artifactId>
+                <version>${authguard.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.authguard</groupId>
+                <artifactId>jwt</artifactId>
                 <version>${authguard.version}</version>
             </dependency>
         </dependencies>

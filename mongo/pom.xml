@@ -34,6 +34,11 @@
             <groupId>com.authguard</groupId>
             <artifactId>log-external</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.authguard</groupId>
+            <artifactId>jwt</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
