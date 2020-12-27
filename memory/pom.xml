@@ -15,7 +15,7 @@
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
 
-        <memory-dal.version>1.0-SNAPSHOT</memory-dal.version>
+        <memory-dal.version>0.3</memory-dal.version>
     </properties>
 
     <dependencies>

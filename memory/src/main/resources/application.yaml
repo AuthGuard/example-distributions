@@ -7,7 +7,6 @@ authguard:
     scrypt:
       blockSize: 16
     conditions:
-#      includeCaps: true
       minLength: 6
 
   apiKeys:
@@ -71,3 +70,6 @@ authguard:
     channels:
       - accounts
       - auth
+
+  accountLocker:
+    maxAttempt: 3
