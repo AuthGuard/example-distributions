@@ -19,12 +19,22 @@ authguard:
     allowedAlgorithms: ["HMAC256"]
     trustedIssuers: ["self"]
 
+  sessions:
+    randomSize: 16
+    lifeTime: "30m"
+
   exchange:
     allowed:
       - from: "basic"
         to: "accessToken"
       - from: "basic"
         to: "otp"
+      - from: "basic"
+        to: "sessionToken"
+      - from: "sessionToken"
+        to: "accountId"
+      - from: "sessionToken"
+        to: "session"
 
   accessToken:
     tokenLife: "1h"
@@ -49,7 +59,7 @@ authguard:
     randomSize: 128
 
   authentication:
-    generateToken: "accessToken"
+    generateToken: "sessionToken"
 
   accounts:
     authguardAdminRole: "authguard_admin"

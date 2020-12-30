@@ -58,6 +58,12 @@
                 <artifactId>jwt</artifactId>
                 <version>${authguard.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.authguard</groupId>
+                <artifactId>sessions</artifactId>
+                <version>${authguard.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
