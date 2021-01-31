@@ -1,6 +1,9 @@
 authguard:
   injection:
-    packages: [ "com.authguard" ]
+    packages: [
+      "com.authguard",
+      "com.authguard.external.email.jmail"
+    ]
 
   passwords:
     algorithm: scrypt
@@ -70,8 +73,8 @@ authguard:
   apps:
     authguardAdminClientRole: "authguard_admin_client"
 
-#  verification:
-#    emailVerificationLife: "1d"
+  verification:
+    emailVerificationLife: "1d"
 
   oneTimeAdmin:
     usernameVariable: "AUTHGUARD_OTA_USERNAME"
@@ -85,3 +88,19 @@ authguard:
 
   accountLocker:
     maxAttempt: 3
+
+  mail:
+    javaMail:
+      mail.smtp.host: localhost
+      mail.smtp.port: 3025
+      mail.debug: true
+    provider:
+      fromAddress: noreply@test.com
+      fromName: Auth server
+      templates:
+        otp:
+          file: emails/otp.hbs
+          subject: Login OTP
+        verify-email:
+          file: emails/verify.hbs
+          subject: Verify email

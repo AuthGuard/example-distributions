@@ -32,7 +32,12 @@
 
         <dependency>
             <groupId>com.authguard</groupId>
-            <artifactId>log-external</artifactId>
+            <artifactId>log-email</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.authguard</groupId>
+            <artifactId>log-sms</artifactId>
         </dependency>
 
         <dependency>

@@ -14,6 +14,7 @@
         <module>memory</module>
         <module>mongo</module>
         <module>postgresql</module>
+        <module>memory-with-verification</module>
     </modules>
 
     <properties>
@@ -43,7 +44,13 @@
 
             <dependency>
                 <groupId>com.authguard</groupId>
-                <artifactId>log-external</artifactId>
+                <artifactId>log-sms</artifactId>
+                <version>${authguard.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.authguard</groupId>
+                <artifactId>log-email</artifactId>
                 <version>${authguard.version}</version>
             </dependency>
 

@@ -9,13 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>memory</artifactId>
+    <artifactId>memory-with-validation</artifactId>
 
     <properties>
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
 
         <memory-dal.version>0.3</memory-dal.version>
+        <java-mail-plugin.version>0.1</java-mail-plugin.version>
     </properties>
 
     <dependencies>
@@ -32,16 +33,6 @@
 
         <dependency>
             <groupId>com.authguard</groupId>
-            <artifactId>log-email</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.authguard</groupId>
-            <artifactId>log-sms</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.authguard</groupId>
             <artifactId>jwt</artifactId>
         </dependency>
 
@@ -51,9 +42,20 @@
         </dependency>
 
         <dependency>
-            <groupId>commons-validator</groupId>
-            <artifactId>commons-validator</artifactId>
-            <version>1.4.0</version>
+            <groupId>com.authguard</groupId>
+            <artifactId>log-sms</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.authguard</groupId>
+            <artifactId>verification-plugin</artifactId>
+            <version>${authguard.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.authguard</groupId>
+            <artifactId>java-mail-plugin</artifactId>
+            <version>${java-mail-plugin.version}</version>
         </dependency>
     </dependencies>
 
@@ -85,4 +87,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
