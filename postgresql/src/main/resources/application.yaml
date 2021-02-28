@@ -7,22 +7,36 @@ authguard:
     scrypt:
       blockSize: 16
     conditions:
-#      includeCaps: true
       minLength: 6
+
+  apiKeys:
+    type: "default"
 
   jwt:
     algorithm: "HMAC256"
-    privateKey: "FKvL11DI5rwgt51QgB3CVob3oWYrFNBzF0ROvu9Yaj8"
+    privateKey: "keys/hmac256.pem"
     issuer: "AuthGuard"
     allowedAlgorithms: ["HMAC256"]
     trustedIssuers: ["self"]
+
+  sessions:
+    randomSize: 16
+    lifeTime: "30m"
 
   exchange:
     allowed:
       - from: "basic"
         to: "accessToken"
+      - from: "refresh"
+        to: "accessToken"
       - from: "basic"
         to: "otp"
+      - from: "basic"
+        to: "sessionToken"
+      - from: "sessionToken"
+        to: "accountId"
+      - from: "sessionToken"
+        to: "session"
 
   accessToken:
     tokenLife: "1h"
@@ -56,9 +70,8 @@ authguard:
   apps:
     authguardAdminClientRole: "authguard_admin_client"
 
-#  verification:
-#    verifyEmailUrlTemplate: "http://gateway/authguard/verify/email?token=${token}"
-#    emailVerificationLife: "1d"
+  #  verification:
+  #    emailVerificationLife: "1d"
 
   oneTimeAdmin:
     usernameVariable: "AUTHGUARD_OTA_USERNAME"
@@ -68,3 +81,7 @@ authguard:
     channels:
       - accounts
       - auth
+      - verification
+
+  accountLocker:
+    maxAttempt: 3

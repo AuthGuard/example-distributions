@@ -1,6 +1,6 @@
 authguard:
   injection:
-    packages: [ "com.authguard" ]
+    packages: [ "com.authguard", "com.nexblocks.authguard" ]
 
   passwords:
     algorithm: scrypt
@@ -14,7 +14,7 @@ authguard:
 
   jwt:
     algorithm: "HMAC256"
-    privateKey: "memory/src/main/resources/keys/hmac256.pem"
+    privateKey: "keys/hmac256.pem"
     issuer: "AuthGuard"
     allowedAlgorithms: ["HMAC256"]
     trustedIssuers: ["self"]
@@ -45,6 +45,13 @@ authguard:
     includePermissions: true
     includeRoles: true
 
+  idToken:
+    tokenLife: "1h"
+    refreshTokenLife: "1d"
+    useJti: true
+    includePermissions: true
+    includeRoles: true
+
   otp:
     lifeTime: "2m"
     mode: "NUMERIC"
@@ -61,7 +68,8 @@ authguard:
     randomSize: 128
 
   authentication:
-    generateToken: "accessToken"
+    generateToken: "sessionToken"
+    logoutToken: "sessionToken"
 
   accounts:
     authguardAdminRole: "authguard_admin"

@@ -1,6 +1,6 @@
 package com.authguard.distributions.postgresql;
 
-import com.authguard.rest.Application;
+import com.nexblocks.authguard.rest.Application;
 
 public class PostgresqlDistribution {
     public static void main(final String[] args) {

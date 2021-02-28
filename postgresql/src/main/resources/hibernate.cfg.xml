@@ -16,21 +16,21 @@
 <!--        <property name="show_sql">true</property> &lt;!&ndash; Show SQL in console &ndash;&gt;-->
 <!--        <property name="format_sql">true</property> &lt;!&ndash; Show SQL formatted &ndash;&gt;-->
 
-        <mapping class="com.authguard.dal.model.AccountDO"/>
-        <mapping class="com.authguard.dal.model.CredentialsDO"/>
-        <mapping class="com.authguard.dal.model.CredentialsAuditDO"/>
-        <mapping class="com.authguard.dal.model.UserIdentifierDO"/>
-        <mapping class="com.authguard.dal.model.EmailDO"/>
-        <mapping class="com.authguard.dal.model.PasswordDO"/>
-        <mapping class="com.authguard.dal.model.AccountTokenDO"/>
-        <mapping class="com.authguard.dal.model.AppDO"/>
-        <mapping class="com.authguard.dal.model.RoleDO"/>
-        <mapping class="com.authguard.dal.model.PermissionDO"/>
-        <mapping class="com.authguard.dal.model.ApiKeyDO"/>
-        <mapping class="com.authguard.dal.model.SessionDO"/>
-        <mapping class="com.authguard.dal.model.OneTimePasswordDO"/>
-        <mapping class="com.authguard.dal.model.IdempotentRecordDO"/>
-        <mapping class="com.authguard.dal.model.TokenRestrictionsDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.AccountDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.CredentialsDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.CredentialsAuditDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.UserIdentifierDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.EmailDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.PasswordDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.AccountTokenDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.AppDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.RoleDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.PermissionDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.ApiKeyDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.SessionDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.OneTimePasswordDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.IdempotentRecordDO"/>
+        <mapping class="com.nexblocks.authguard.dal.model.TokenRestrictionsDO"/>
 
     </session-factory>
 </hibernate-configuration>
