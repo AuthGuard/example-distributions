@@ -21,6 +21,10 @@ authguard:
     issuer: "AuthGuard"
     allowedAlgorithms: ["HMAC256"]
     trustedIssuers: ["self"]
+    encryption:
+      algorithm: "EC"
+      publicKey: "keys/ec256-public.pem"
+      privateKey: "keys/ec256-private.pem"
 
   sessions:
     randomSize: 16
@@ -42,6 +46,10 @@ authguard:
         to: "session"
       - from: "basic"
         to: "oidc"
+      - from: "encryptedToken"
+        to: "accessToken"
+      - from: "encryptedToken"
+        to: "idToken"
 
   accessToken:
     tokenLife: "1h"
