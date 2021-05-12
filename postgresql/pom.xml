@@ -14,21 +14,19 @@
     <properties>
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
-
-        <postgresql-dal.version>1.0-SNAPSHOT</postgresql-dal.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
             <artifactId>postgres-cache</artifactId>
-            <version>${postgresql-dal.version}</version>
+            <version>${standard-extensions.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
             <artifactId>postgres-persistence</artifactId>
-            <version>${postgresql-dal.version}</version>
+            <version>${standard-extensions.version}</version>
         </dependency>
 
         <dependency>

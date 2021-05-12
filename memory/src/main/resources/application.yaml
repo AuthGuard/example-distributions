@@ -11,6 +11,9 @@ authguard:
 
   apiKeys:
     type: "default"
+    hash:
+      algorithm: blake2b
+      key: "this is a test key"
 
   jwt:
     algorithm: "HMAC256"
@@ -37,6 +40,8 @@ authguard:
         to: "accountId"
       - from: "sessionToken"
         to: "session"
+      - from: "basic"
+        to: "oidc"
 
   accessToken:
     tokenLife: "1h"
@@ -68,8 +73,8 @@ authguard:
     randomSize: 128
 
   authentication:
-    generateToken: "sessionToken"
-    logoutToken: "sessionToken"
+    generateToken: "accessToken"
+    logoutToken: "accessToken"
 
   accounts:
     authguardAdminRole: "authguard_admin"

@@ -21,7 +21,8 @@
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
 
-        <authguard.version>1.0-SNAPSHOT</authguard.version>
+        <authguard.version>0.6.0-SNAPSHOT</authguard.version>
+        <standard-extensions.version>0.4.0-SNAPSHOT</standard-extensions.version>
 
         <exec-plugin.version>1.6.0</exec-plugin.version>
         <jar-plugin.verion>3.2.0</jar-plugin.verion>
@@ -39,19 +40,19 @@
             <dependency>
                 <groupId>com.nexblocks.authguard</groupId>
                 <artifactId>log-emb</artifactId>
-                <version>${authguard.version}</version>
+                <version>${standard-extensions.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.nexblocks.authguard</groupId>
                 <artifactId>log-sms</artifactId>
-                <version>${authguard.version}</version>
+                <version>${standard-extensions.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.nexblocks.authguard</groupId>
                 <artifactId>log-email</artifactId>
-                <version>${authguard.version}</version>
+                <version>${standard-extensions.version}</version>
             </dependency>
 
             <dependency>

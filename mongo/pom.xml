@@ -15,7 +15,7 @@
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
 
-        <mongo-dal.version>1.0-SNAPSHOT</mongo-dal.version>
+        <mongo-dal.version>0.3.0</mongo-dal.version>
     </properties>
 
     <dependencies>
