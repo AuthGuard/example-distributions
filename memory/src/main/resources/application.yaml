@@ -22,9 +22,8 @@ authguard:
     allowedAlgorithms: ["HMAC256"]
     trustedIssuers: ["self"]
     encryption:
-      algorithm: "EC"
-      publicKey: "keys/ec256-public.pem"
-      privateKey: "keys/ec256-private.pem"
+      algorithm: "AES_CBC"
+      privateKey: "keys/aes128.txt"
 
   sessions:
     randomSize: 16
