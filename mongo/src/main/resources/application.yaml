@@ -1,20 +1,70 @@
 authguard:
   injection:
-    packages: [ "com.authguard" ]
+    packages: [ "com.nexblocks.authguard" ]
+
+  passwords:
+    algorithm: scrypt
+    scrypt:
+      blockSize: 16
+    conditions:
+      minLength: 6
+
+  apiKeys:
+    type: "default"
+    hash:
+      algorithm: blake2b
+      key: "this is a test key"
 
   jwt:
     algorithm: "HMAC256"
-    privateKey: "FKvL11DI5rwgt51QgB3CVob3oWYrFNBzF0ROvu9Yaj8"
+    privateKey: "keys/hmac256.pem"
     issuer: "AuthGuard"
     allowedAlgorithms: ["HMAC256"]
     trustedIssuers: ["self"]
 
+  sessions:
+    randomSize: 16
+    lifeTime: "30m"
+
   exchange:
+    providers:
+      - "accessToken"
+      - "idToken"
+      - "sessionToken"
+      - "otp"
+      - "passwordless"
     allowed:
       - from: "basic"
-        to: "idToken"
+        to: "passwordless"
+      - from: "passwordless"
+        to: "oidc"
+      - from: "refresh"
+        to: "accessToken"
+      - from: "basic"
+        to: "accessToken"
+      - from: "refresh"
+        to: "accessToken"
       - from: "basic"
         to: "otp"
+      - from: "basic"
+        to: "sessionToken"
+      - from: "sessionToken"
+        to: "accountId"
+      - from: "sessionToken"
+        to: "session"
+      - from: "basic"
+        to: "oidc"
+      - from: "encryptedToken"
+        to: "accessToken"
+      - from: "encryptedToken"
+        to: "idToken"
+
+  accessToken:
+    tokenLife: "1h"
+    refreshTokenLife: "1d"
+    useJti: true
+    includePermissions: true
+    includeRoles: true
 
   idToken:
     tokenLife: "1h"
@@ -39,7 +89,7 @@ authguard:
     randomSize: 128
 
   authentication:
-    generateToken: "idToken"
+    generateToken: "accessToken"
 
   accounts:
     authguardAdminRole: "authguard_admin"
@@ -48,9 +98,8 @@ authguard:
   apps:
     authguardAdminClientRole: "authguard_admin_client"
 
-  verification:
-    verifyEmailUrlTemplate: "http://gateway/authguard/verify/email?token=${token}"
-    emailVerificationLife: "1d"
+  #  verification:
+  #    emailVerificationLife: "1d"
 
   oneTimeAdmin:
     usernameVariable: "AUTHGUARD_OTA_USERNAME"
@@ -60,6 +109,10 @@ authguard:
     channels:
       - accounts
       - auth
+      - verification
+
+  accountLocker:
+    maxAttempt: 3
 
   mongo:
     connectionString: "mongodb://localhost:27017"

@@ -1,4 +1,7 @@
 authguard:
+  server:
+    port: 3200
+
   injection:
     packages: [ "com.authguard", "com.nexblocks.authguard" ]
 
@@ -30,7 +33,14 @@ authguard:
     lifeTime: "30m"
 
   exchange:
+    providers: [ "accessToken", "sessionToken" ]
     allowed:
+      - from: "basic"
+        to: "passwordless"
+      - from: "passwordless"
+        to: "oidc"
+      - from: "refresh"
+        to: "accessToken"
       - from: "basic"
         to: "accessToken"
       - from: "refresh"
@@ -51,18 +61,15 @@ authguard:
         to: "idToken"
 
   accessToken:
-    tokenLife: "1h"
+    tokenLife: "10m"
     refreshTokenLife: "1d"
     useJti: true
-    includePermissions: true
     includeRoles: true
 
   idToken:
     tokenLife: "1h"
     refreshTokenLife: "1d"
     useJti: true
-    includePermissions: true
-    includeRoles: true
 
   otp:
     lifeTime: "2m"
@@ -71,9 +78,9 @@ authguard:
     generateToken: "accessToken"
 
   passwordless:
-    tokenLife: "1h"
+    tokenLife: "10m"
     randomSize: 128
-    generateToken: "accessToken"
+    generateToken: "oidc"
 
   authorizationCode:
     lifeTime: "5m"
@@ -90,8 +97,11 @@ authguard:
   apps:
     authguardAdminClientRole: "authguard_admin_client"
 
-#  verification:
-#    emailVerificationLife: "1d"
+  verification:
+    emailVerificationLife: "1d"
+
+  external:
+    email: true
 
   oneTimeAdmin:
     usernameVariable: "AUTHGUARD_OTA_USERNAME"
@@ -102,6 +112,21 @@ authguard:
       - accounts
       - auth
       - verification
+      - passwordless
 
   accountLocker:
     maxAttempt: 3
+
+  mail:
+    provider:
+      fromAddress: noreply@authguard.com
+      fromName: Tests
+      templates:
+        passwordless:
+          file: emails/passwordless.hbs
+          subject: Passwordless Yay
+    javaMail:
+      "mail.smtp.host": localhost
+      "mail.smtp.port": 3125
+      "mail.debug": true
+

@@ -21,12 +21,13 @@
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
 
-        <authguard.version>0.6.0-SNAPSHOT</authguard.version>
-        <standard-extensions.version>0.4.0-SNAPSHOT</standard-extensions.version>
+        <authguard.version>0.9.0-SNAPSHOT</authguard.version>
+        <standard-extensions.version>0.9.0-SNAPSHOT</standard-extensions.version>
 
         <exec-plugin.version>1.6.0</exec-plugin.version>
         <jar-plugin.verion>3.2.0</jar-plugin.verion>
         <assembly-plugin.version>3.1.1</assembly-plugin.version>
+        <testcontainers.version>1.15.2</testcontainers.version>
     </properties>
 
     <dependencyManagement>
@@ -70,6 +71,18 @@
             <dependency>
                 <groupId>com.nexblocks.authguard</groupId>
                 <artifactId>sessions</artifactId>
+                <version>${authguard.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.nexblocks.authguard</groupId>
+                <artifactId>config</artifactId>
+                <version>${authguard.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.nexblocks.authguard</groupId>
+                <artifactId>service-api</artifactId>
                 <version>${authguard.version}</version>
             </dependency>
         </dependencies>

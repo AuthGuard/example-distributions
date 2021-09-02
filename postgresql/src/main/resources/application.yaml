@@ -35,6 +35,12 @@ authguard:
       - "passwordless"
     allowed:
       - from: "basic"
+        to: "passwordless"
+      - from: "passwordless"
+        to: "oidc"
+      - from: "refresh"
+        to: "accessToken"
+      - from: "basic"
         to: "accessToken"
       - from: "refresh"
         to: "accessToken"
@@ -46,6 +52,12 @@ authguard:
         to: "accountId"
       - from: "sessionToken"
         to: "session"
+      - from: "basic"
+        to: "oidc"
+      - from: "encryptedToken"
+        to: "accessToken"
+      - from: "encryptedToken"
+        to: "idToken"
 
   accessToken:
     tokenLife: "1h"

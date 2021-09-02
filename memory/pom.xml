@@ -15,14 +15,21 @@
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
 
-        <memory-dal.version>0.4.0-SNAPSHOT</memory-dal.version>
+        <memory-dal.version>0.8.0</memory-dal.version>
+        <passwordless-send.version>0.8.0</passwordless-send.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
             <artifactId>memory-dal</artifactId>
-            <version>${memory-dal.version}</version>
+            <version>${standard-extensions.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nexblocks.authguard</groupId>
+            <artifactId>passwordless-send</artifactId>
+            <version>${authguard.version}</version>
         </dependency>
 
         <dependency>
@@ -30,10 +37,10 @@
             <artifactId>rest</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.nexblocks.authguard</groupId>
-            <artifactId>log-email</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.nexblocks.authguard</groupId>-->
+<!--            <artifactId>log-email</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
@@ -48,6 +55,22 @@
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
             <artifactId>sessions</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nexblocks.authguard</groupId>
+            <artifactId>config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nexblocks.authguard</groupId>
+            <artifactId>service-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nexblocks.authguard</groupId>
+            <artifactId>javamail-provider</artifactId>
+            <version>0.8.0</version>
         </dependency>
 
         <dependency>

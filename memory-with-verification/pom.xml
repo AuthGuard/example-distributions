@@ -14,16 +14,13 @@
     <properties>
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
-
-        <memory-dal.version>0.3</memory-dal.version>
-        <java-mail-plugin.version>0.1</java-mail-plugin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
             <artifactId>memory-dal</artifactId>
-            <version>${memory-dal.version}</version>
+            <version>${standard-extensions.version}</version>
         </dependency>
 
         <dependency>
@@ -54,8 +51,8 @@
 
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
-            <artifactId>java-mail-plugin</artifactId>
-            <version>${java-mail-plugin.version}</version>
+            <artifactId>javamail-provider</artifactId>
+            <version>${standard-extensions.version}</version>
         </dependency>
     </dependencies>
 

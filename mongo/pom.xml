@@ -14,21 +14,19 @@
     <properties>
         <maven.compiler.source>1.11</maven.compiler.source>
         <maven.compiler.target>1.11</maven.compiler.target>
-
-        <mongo-dal.version>0.3.0</mongo-dal.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
             <artifactId>mongo-persistence</artifactId>
-            <version>${mongo-dal.version}</version>
+            <version>${standard-extensions.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
             <artifactId>mongo-cache</artifactId>
-            <version>${mongo-dal.version}</version>
+            <version>${standard-extensions.version}</version>
         </dependency>
 
         <dependency>
@@ -49,6 +47,23 @@
         <dependency>
             <groupId>com.nexblocks.authguard</groupId>
             <artifactId>jwt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nexblocks.authguard</groupId>
+            <artifactId>sessions</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers</artifactId>
+            <version>${testcontainers.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>mongodb</artifactId>
+            <version>${testcontainers.version}</version>
         </dependency>
     </dependencies>
 
