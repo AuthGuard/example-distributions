@@ -1,6 +1,6 @@
 authguard:
   server:
-    port: 3200
+    port: 3000
 
   injection:
     packages: [ "com.authguard", "com.nexblocks.authguard" ]
@@ -92,6 +92,7 @@ authguard:
 
   accounts:
     authguardAdminRole: "authguard_admin"
+    defaultRoles: [ "test-role" ]
     verifyEmail: true
 
   apps:
@@ -113,6 +114,7 @@ authguard:
       - auth
       - verification
       - passwordless
+      - credentials
 
   accountLocker:
     maxAttempt: 3
